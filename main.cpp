@@ -112,6 +112,30 @@ public:
             break;
         }
     }
+    void turnUp()
+    {
+        switch (direction)
+        {
+        case 'N':
+            direction = 'U';
+            break;
+        case 'U':
+            direction = 'S';
+            break;
+        case 'S':
+            direction = 'D';
+            break;
+        case 'D':
+            direction = 'N';
+            break;
+        case 'E':
+            direction = 'U';
+            break;
+        case 'W':
+            direction = 'D';
+            break;
+        }
+    }
     void executeCommands(string commands)
     {
         for (int i = 0; i < commands.size(); i++)
@@ -129,6 +153,9 @@ public:
                 break;
             case 'r':
                 turnRight();
+                break;
+            case 'u':
+                turnUp();
                 break;
             default:
                 break;
@@ -170,7 +197,7 @@ int main()
     spacecraft.getPosition(X, Y, Z);
     Direction = spacecraft.getDirection();
 
-    cout << "Final Position: (" << X << ", " << Y << ", " << Z << ")\n";
+    cout << "Final Position: (" << X << ", " << Y << ", " << Z << ")" << endl;
     cout << "Final Direction: " << Direction << endl;
     return 0;
 }
