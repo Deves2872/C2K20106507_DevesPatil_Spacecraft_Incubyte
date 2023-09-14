@@ -63,6 +63,55 @@ public:
             break;
         }
     }
+    void turnLeft()
+    {
+        switch (direction)
+        {
+        case 'N':
+            direction = 'W';
+            break;
+        case 'S':
+            direction = 'E';
+            break;
+        case 'E':
+            direction = 'N';
+            break;
+        case 'W':
+            direction = 'S';
+            break;
+        case 'U':
+            direction = 'N';
+            break;
+        case 'D':
+            direction = 'S';
+            break;
+        }
+    }
+
+    void turnRight()
+    {
+        switch (direction)
+        {
+        case 'N':
+            direction = 'E';
+            break;
+        case 'S':
+            direction = 'W';
+            break;
+        case 'E':
+            direction = 'S';
+            break;
+        case 'W':
+            direction = 'N';
+            break;
+        case 'U':
+            direction = 'S';
+            break;
+        case 'D':
+            direction = 'N';
+            break;
+        }
+    }
     void executeCommands(string commands)
     {
         for (int i = 0; i < commands.size(); i++)
@@ -74,6 +123,12 @@ public:
                 break;
             case 'b':
                 moveBackward();
+                break;
+            case 'l':
+                turnLeft();
+                break;
+            case 'r':
+                turnRight();
                 break;
             default:
                 break;
@@ -115,7 +170,7 @@ int main()
     spacecraft.getPosition(X, Y, Z);
     Direction = spacecraft.getDirection();
 
-    std::cout << "Final Position: (" << X << ", " << Y << ", " << Z << ")\n";
-
+    cout << "Final Position: (" << X << ", " << Y << ", " << Z << ")\n";
+    cout << "Final Direction: " << Direction << endl;
     return 0;
 }
