@@ -136,6 +136,30 @@ public:
             break;
         }
     }
+    void turnDown()
+    {
+        switch (direction)
+        {
+        case 'N':
+            direction = 'D';
+            break;
+        case 'D':
+            direction = 'S';
+            break;
+        case 'S':
+            direction = 'U';
+            break;
+        case 'U':
+            direction = 'N';
+            break;
+        case 'E':
+            direction = 'D';
+            break;
+        case 'W':
+            direction = 'U';
+            break;
+        }
+    }
     void executeCommands(string commands)
     {
         for (int i = 0; i < commands.size(); i++)
@@ -157,6 +181,8 @@ public:
             case 'u':
                 turnUp();
                 break;
+            case 'd':
+                turnDown();
             default:
                 break;
             }
